@@ -6,7 +6,7 @@ from libro import Catalogo
 from libro import CatalogoPrestiti
 ora = datetime.datetime.now()
 ListaLibri = ["Harry Potter e la pietra filosofale di JK Rowling", "Harry Potter e la camera dei segreti di JK Rowling","Harry Potter e il prigioniero di azkaban","Harry Potter e il calice di fuoco di JK Rowling","HungryGames la ragazza con l'uccello di fuoco",]
-ListaLibriPrestati = ["","","",]
+ListaLibriPrestati = ["Harry Potter e l'ordine della fenice di JK Rowling","Harry Potter ed il principe mezzosangue di JK Rowling","Harry Potter ed i doni della morte di JK Rowling","Harry Potter e la maledizione dell'erede di JK Rowling"]
 programma = 1
 while programma!= "no":
     NomeInput = input("Inserisca il suo nome\n")
