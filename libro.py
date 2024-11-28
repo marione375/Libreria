@@ -12,7 +12,7 @@ def Aggiunta(ListaLibri):
             ListaLibri.append(f"{Titolo} di {Autore}")
         elif risposta != "si" or risposta != "no":
             print("la prego di selezionare o si o no")
-def Prestito(ListaLibri):
+def Prestito(ListaLibri,ListaLibriPrestati):
     print("Ha selezionato il prestito del libro")
     quantitàprestito = int(input("Quanti libri desidera prendere in prestito?\n"))
     while quantitàprestito > 0:
@@ -26,6 +26,7 @@ def Prestito(ListaLibri):
                 if controllo > 0:
                     print("il libro o i libri sono disponibili, desidera prelevarli")
                     ListaLibri.remove(f"{Titolo} di {Autore}")
+                    ListaLibriPrestati.append(f"{Titolo} di {Autore}")
                 else :
                     print("il libro non è disponibile")
                 if quantitàprestito < 0:
@@ -34,23 +35,24 @@ def Prestito(ListaLibri):
                     print("Servizio effettuato")
             elif risposta != "si" or risposta != "no":
                 print("la prego di selezionare o si o no")
-def Restituzione(ListaLibri,NomeInput,CognomeInput):
+def Restituzione(ListaLibri,NomeInput,CognomeInput,ListaLibriPrestati):
     print("Ha selezionato la restituzione del libro")
     Titolo = input("Inserisca il titolo del libro\n")
     Autore = input("Chi è l'autore del libro?\n")
     Codicelibro = input("Inserisca il codice libro\n")
     risposta = input (f"{Titolo} di {Autore}, codice {Codicelibro}\n è corretto?\n [si o no]\n")
     if risposta == "si":
-        if Codicelibro == 3758903:
-            print(f"Ha ritrovato uno dei libri più rari che ci siano, la ringraziamo infinitamente ({ora})")
-            ListaLibri.append(f"{Titolo} di {Autore}")
-        elif Codicelibro >= 6969696:
+        if Codicelibro >= 6969696:
             print("Codice incorretto")
         else:
             print(f"la ringrazio per la restituzione {CognomeInput} {NomeInput}({ora})")
             ListaLibri.append(f"{Titolo} di {Autore}")
+            ListaLibriPrestati.remove(f"{Titolo} di {Autore}")
     elif risposta != "si" or risposta != "no":
         print("la prego di selezionare o si o no")
 def Catalogo(ListaLibri):
     for Lista in ListaLibri:
         print(Lista)
+def CatalogoPrestiti(ListaLibriPrestati):
+    for Lista1 in ListaLibriPrestati:
+        print(Lista1)
